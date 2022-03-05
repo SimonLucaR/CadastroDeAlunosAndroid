@@ -2,6 +2,7 @@ package com.example.cadastroalunos;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -10,7 +11,10 @@ import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.cadastroalunos.dao.AlunoDAO;
+import com.example.cadastroalunos.model.Aluno;
 import com.example.cadastroalunos.util.CpfMask;
+import com.example.cadastroalunos.util.Util;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
@@ -135,6 +139,24 @@ public class CadastroAlunoActivity extends AppCompatActivity {
             edDtInscricaoAluno.requestFocus();
             return;
         }
+        salvarAluno();
+    }
+
+    public void salvarAluno(){
+        Aluno aluno = new Aluno();
+        aluno.setRa(Integer.parseInt(edRaAluno.getText().toString()));
+        aluno.setNome(edNomeAluno.getText().toString());
+        aluno.setCpf(edCPFAluno.getText().toString());
+        aluno.setDtMatricula(edDtInscricaoAluno.getText().toString());
+        aluno.setDtNascimento(edDtNascimentoAluno.getText().toString());
+        aluno.setCurso(spCursos.getSelectedItem().toString());
+        aluno.setPeriodo(spPeriodos.getSelectedItem().toString());
+
+        if (AlunoDAO.salvar(aluno) > 0) {
+            finishActivity(RESULT_OK);
+        }
+        else
+            Util.customSnackBar(llPrincipal,"Erro ao salvar o aluno ("+aluno.getNome()+").",0);
 
     }
 
@@ -154,9 +176,18 @@ public class CadastroAlunoActivity extends AppCompatActivity {
             case R.id.mn_salvar:
                 validaCampos();
                 return true;
+            case R.id.mn_listar:
+                finish();
+                //listarAlunos();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void listarAlunos() {
+        Intent intent = new Intent(this, ListaAlunoActivity.class);
+        startActivityForResult(intent,1);
     }
 
     private void limparCampos() {

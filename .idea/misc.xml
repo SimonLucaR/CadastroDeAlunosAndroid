@@ -4,8 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Projetos/CadastroAlunos/app/src/main/res/layout/activity_cadastro_aluno.xml" value="0.1" />
+        <entry key="..\:/Projetos/CadastroAlunos/app/src/main/res/layout/activity_lista_aluno.xml" value="0.25" />
         <entry key="..\:/Projetos/CadastroAlunos/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Projetos/CadastroAlunos/app/src/main/res/layout/card_view_aluno.xml" value="0.1" />
         <entry key="..\:/Projetos/CadastroAlunos/app/src/main/res/menu/menu_cadastro.xml" value="0.20052083333333334" />
+        <entry key="..\:/Projetos/CadastroAlunos/app/src/main/res/menu/menu_lista.xml" value="0.1" />
       </map>
     </option>
   </component>
