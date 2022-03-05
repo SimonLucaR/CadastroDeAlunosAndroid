@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">CadastroAlunos</string>
+    <string name="ra">RA</string>
+    <string name="nome">Nome</string>
+    <string name="cpf">CPF</string>
+    <string name="dataNascimento">Dt. Nascimento</string>
+    <string name="dataInscricao">Dt. Inscrição</string>
+    <string name="cursos">Curso</string>
+    <string name="periodo">Periodo</string>
+    <string name="selecioneCurso">Selecione o Curso</string>
+    <string name="selecionePeriodo">Selecione o Periodo</string>
+    <string name="limpar">Limpar</string>
+    <string name="salvar">Salvar</string>
+</resources>
